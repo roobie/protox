@@ -5,6 +5,7 @@ Object.defineProperties(Number.prototype, {
   /**
    * @method Number.prototype.toMoney
    *
+   * @desc
    * Truncates a number to a maximum precision of 0.01
    *
    * @example

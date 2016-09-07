@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "tape spec/**/*.js | faucet",
-    "pregendoc": "rm -rf doc && mkdir doc",
-    "gendoc": "jsdoc modules/*.js -d doc -R README.md",
-    "preassemble": "rm -rf out && mkdir out",
+    "gendoc": "jsdoc modules/*.js -d out -R README.md",
+    "clean": "rm -rf out && mkdir out",
     "assemble": "browserify modules/*.js -d -p [minifyify --map bundle.js.map --output out/bundle.js.map] -o out/bundle.js",
     "watch": "parallelshell \"watch 'npm run test' spec/ -d\" \"watch 'npm run test' modules/ -d\"",
-    "precommit": "npm run assemble && npm run test"
+    "precommit": "npm run assemble && npm run test",
+    "preghpub": "npm run clean && npm run gendoc && npm run assemble",
+    "ghpub": "node ghpages.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "browserify": "^13.1.0",
     "es2020": "^1.1.9",
     "faucet": "0.0.1",
+    "gh-pages": "^0.11.0",
     "husky": "^0.11.7",
     "jsdoc": "^3.4.0",
     "minifyify": "^7.3.3",
