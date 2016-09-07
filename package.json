@@ -10,6 +10,7 @@
     "assemble": "browserify modules/*.js -d -p [minifyify --map bundle.js.map --output out/bundle.js.map] -o out/bundle.js",
     "watch": "parallelshell \"watch 'npm run test' spec/ -d\" \"watch 'npm run test' modules/ -d\"",
     "precommit": "npm run assemble && npm run test",
+    "postpush": "npm run ghpub",
     "preghpub": "npm run clean && npm run gendoc && npm run assemble",
     "ghpub": "node ghpages.js"
   },
