@@ -1,0 +1,46 @@
+{
+  "name": "protox",
+  "version": "1.0.0",
+  "description": "Usable extensions to native prototypes in JavaScript using `Object.defineProperties`",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape spec/**/*.js | faucet",
+    "pregendoc": "rm -rf doc && mkdir doc",
+    "gendoc": "jsdoc modules/*.js -d doc -R README.md",
+    "preassemble": "rm -rf out && mkdir out",
+    "assemble": "browserify modules/*.js -d -p [minifyify --map bundle.js.map --output out/bundle.js.map] -o out/bundle.js",
+    "watch": "parallelshell \"watch 'npm run test' spec/ -d\" \"watch 'npm run test' modules/ -d\"",
+    "precommit": "npm run assemble && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roobie/protox.git"
+  },
+  "author": "bjorn.roberg@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roobie/protox/issues"
+  },
+  "homepage": "https://github.com/roobie/protox#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "es2020": "^1.1.9",
+    "faucet": "0.0.1",
+    "husky": "^0.11.7",
+    "jsdoc": "^3.4.0",
+    "minifyify": "^7.3.3",
+    "parallelshell": "^2.0.0",
+    "tape": "^4.6.0",
+    "uglify-js": "^2.7.3",
+    "watch": "^0.19.2",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0"
+  },
+  "browserify": {
+    "transform": [
+      "es2020"
+    ]
+  }
+}
