@@ -14,11 +14,19 @@ using `Object.defineProperties`
 ### in the browser
 
 You might wanna rename the file so that you can differentiate this lib from others.
-`<script src="[bundle.js](https://roobie.github.io/protox/bundle.js)"></script>`
+
+Download the [bundle.js](https://roobie.github.io/protox/bundle.js)file and reference it as such:
+```
+<script src="bundle.js"></script>
+```
 
 ### Node
 
-`npm install --save protox`
+```
+npm install --save protox
+```
+
+then
 
 ```
 require('protox');
