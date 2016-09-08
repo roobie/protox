@@ -1,6 +1,6 @@
 {
   "name": "protox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Usable extensions to native prototypes in JavaScript using `Object.defineProperties`",
   "main": "index.js",
   "scripts": {
